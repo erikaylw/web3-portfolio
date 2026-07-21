@@ -1,26 +1,160 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: #050508;
+  --color-bg-card: #0a0a14;
+  --color-bg-hover: #111122;
+  --color-neon-green: #00ff41;
+  --color-neon-cyan: #00f0ff;
+  --color-neon-magenta: #ff00ff;
+  --color-neon-red: #ff0044;
+  --color-neon-yellow: #ffdd00;
+  --color-text-primary: #e8e8f0;
+  --color-text-muted: #6b6b80;
+  --color-border: #1a1a2e;
+  --color-border-active: #2a2a4e;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1a1a2e #050508;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-display);
+}
+
+/* CRT scanline overlay */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 65, 0.03) 2px,
+    rgba(0, 255, 65, 0.03) 4px
+  );
+}
+
+/* Grid background */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Glitch text effect */
+@keyframes glitch-1 {
+  0%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); }
+  10% { clip-path: inset(20% 0 60% 0); transform: translate(-3px, 2px); }
+  20% { clip-path: inset(50% 0 30% 0); transform: translate(3px, -1px); }
+  30% { clip-path: inset(10% 0 70% 0); transform: translate(-2px, 3px); }
+  40% { clip-path: inset(70% 0 10% 0); transform: translate(2px, -2px); }
+  50% { clip-path: inset(30% 0 50% 0); transform: translate(-1px, 1px); }
+}
+
+@keyframes glitch-2 {
+  0%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); }
+  15% { clip-path: inset(60% 0 20% 0); transform: translate(2px, -3px); }
+  25% { clip-path: inset(30% 0 40% 0); transform: translate(-3px, 2px); }
+  35% { clip-path: inset(80% 0 5% 0); transform: translate(1px, -1px); }
+  45% { clip-path: inset(5% 0 70% 0); transform: translate(-2px, 3px); }
+}
+
+.glitch-text {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+
+.glitch-text:hover::before {
+  opacity: 0.7;
+  color: var(--color-neon-cyan);
+  animation: glitch-1 0.4s infinite linear alternate-reverse;
+}
+
+.glitch-text:hover::after {
+  opacity: 0.7;
+  color: var(--color-neon-magenta);
+  animation: glitch-2 0.3s infinite linear alternate-reverse;
+}
+
+/* Flicker animation */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  41% { opacity: 1; }
+  42% { opacity: 0.7; }
+  43% { opacity: 1; }
+  45% { opacity: 0.3; }
+  46% { opacity: 1; }
+}
+
+.flicker {
+  animation: flicker 3s infinite;
+}
+
+/* Scanline move */
+@keyframes scanline {
+  0% { top: -100%; }
+  100% { top: 100%; }
+}
+
+.scanline {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(to bottom, transparent, rgba(0, 255, 65, 0.06), transparent);
+  pointer-events: none;
+  z-index: 9998;
+  animation: scanline 8s linear infinite;
+}
+
+/* Terminal blink */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink::after {
+  content: "_";
+  animation: blink 1s step-end infinite;
+  color: var(--color-neon-green);
+}
+
+/* Smooth reveal */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out forwards;
+}
+
+/* RGB border glow */
+@keyframes rgb-glow {
+  0%, 100% { border-color: #ff0044; box-shadow: 0 0 20px rgba(255, 0, 68, 0.3); }
+  33% { border-color: #00ff41; box-shadow: 0 0 20px rgba(0, 255, 65, 0.3); }
+  66% { border-color: #00f0ff; box-shadow: 0 0 20px rgba(0, 240, 255, 0.3); }
+}
+
+.rgb-border {
+  animation: rgb-glow 4s linear infinite;
 }
