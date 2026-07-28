@@ -596,8 +596,11 @@ export default function Home() {
                 </a>
               ))}
 
-              <div
-                className={`flex items-center justify-between border border-border bg-bg-card p-8 sm:col-span-2 ${
+              <a
+                href="https://t.me/boahancockreal"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`group flex items-center justify-between border border-border bg-bg-card p-8 transition-all hover:border-neon-magenta/40 hover:bg-bg-hover sm:col-span-2 ${
                   mounted ? "animate-fade-up" : "opacity-0"
                 }`}
                 style={{
@@ -612,11 +615,19 @@ export default function Home() {
                     <br />
                     Business Development & Moderation inquiries welcome.
                   </p>
+                  <p className="mt-3 font-mono text-sm text-neon-magenta">
+                    t.me/boahancockreal
+                  </p>
                 </div>
-                <span className="hidden font-mono text-[10px] uppercase tracking-widest text-neon-magenta sm:block">
-                  // always
-                </span>
-              </div>
+                <div className="flex items-center gap-4">
+                  <span className="hidden font-mono text-[10px] uppercase tracking-widest text-neon-magenta sm:block">
+                    // always
+                  </span>
+                  <span className="text-2xl text-text-muted transition-all group-hover:translate-x-1 group-hover:text-neon-magenta">
+                    →
+                  </span>
+                </div>
+              </a>
             </div>
           </div>
         </section>
