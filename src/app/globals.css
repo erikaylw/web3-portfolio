@@ -1,25 +1,25 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-bg: #050508;
-  --color-bg-card: #0a0a14;
-  --color-bg-hover: #111122;
+  --color-bg: #12121f;
+  --color-bg-card: #1a1a2c;
+  --color-bg-hover: #222238;
   --color-neon-green: #00ff41;
   --color-neon-cyan: #00f0ff;
   --color-neon-magenta: #ff00ff;
   --color-neon-red: #ff0044;
   --color-neon-yellow: #ffdd00;
   --color-text-primary: #e8e8f0;
-  --color-text-muted: #6b6b80;
-  --color-border: #1a1a2e;
-  --color-border-active: #2a2a4e;
+  --color-text-muted: #8585a0;
+  --color-border: #2d2d48;
+  --color-border-active: #3d3d66;
   --font-display: "Space Grotesk", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: #1a1a2e #050508;
+  scrollbar-color: #2d2d48 #12121f;
 }
 
 body {
@@ -47,8 +47,8 @@ body::after {
 /* Grid background */
 .bg-grid {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
