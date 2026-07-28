@@ -81,6 +81,51 @@ export default function Home() {
     },
   ];
 
+  const events = [
+    {
+      title: "Bitget Wallet Dinner with KOLs",
+      location: "Jakarta",
+      images: ["/images/events/bitget-dinner-kols-1.jpg"],
+      desc: "Exclusive dinner with key opinion leaders in the Bitget Wallet ecosystem.",
+    },
+    {
+      title: "Bitget Wallet Watch Party",
+      location: "Bandung",
+      images: [
+        "/images/events/bitget-watch-party-bandung-1.jpg",
+        "/images/events/bitget-watch-party-bandung-2.jpg",
+      ],
+      desc: "Live watch party with the Bitget Wallet community in Bandung.",
+    },
+    {
+      title: "Bitget Wallet × SUI Halo",
+      location: "Madiun",
+      images: [
+        "/images/events/bitget-sui-madiun-1.jpg",
+        "/images/events/bitget-sui-madiun-2.jpg",
+      ],
+      desc: "Cross-chain event with SUI Halo — onboarding new users to Web3.",
+    },
+    {
+      title: "Bitget Wallet Goes To",
+      location: "Bandung",
+      images: [
+        "/images/events/bitget-goes-to-bandung-1.jpg",
+        "/images/events/bitget-goes-to-bandung-2.jpg",
+      ],
+      desc: "Bitget Wallet roadshow bringing Web3 education to Bandung.",
+    },
+    {
+      title: "Bitget Wallet Crypto4Everyone",
+      location: "Jakarta",
+      images: [
+        "/images/events/bitget-crypto4everyone-jkt-1.jpg",
+        "/images/events/bitget-crypto4everyone-jkt-2.jpg",
+      ],
+      desc: "Crypto4Everyone event — making crypto accessible for all.",
+    },
+  ];
+
   return (
     <>
       {/* Scanline overlay */}
@@ -95,6 +140,12 @@ export default function Home() {
               $ justitia --portfolio
             </span>
             <nav className="hidden items-center gap-8 sm:flex">
+              <a
+                href="#events"
+                className="font-mono text-xs text-text-muted transition-colors hover:text-neon-green"
+              >
+                // events
+              </a>
               <a
                 href="#work"
                 className="font-mono text-xs text-text-muted transition-colors hover:text-neon-cyan"
@@ -371,6 +422,87 @@ export default function Home() {
           </div>
         </section>
 
+        {/* EVENTS GALLERY */}
+        <section
+          id="events"
+          className="border-t border-border px-6 py-24"
+        >
+          <div className="mx-auto max-w-6xl">
+            <div className="mb-16">
+              <span className="font-mono text-xs uppercase tracking-[0.3em] text-neon-magenta">
+                // 003
+              </span>
+              <h2 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
+                events i&apos;ve{" "}
+                <span
+                  className="text-neon-green glitch-text"
+                  data-text="attended"
+                >
+                  attended
+                </span>
+              </h2>
+              <p className="mt-3 max-w-lg font-mono text-sm text-text-muted">
+                Bitget Wallet events across Indonesia — on the ground with the community.
+              </p>
+            </div>
+
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {events.map((event, i) => (
+                <div
+                  key={event.title}
+                  className={`event-card group border border-border bg-bg-card p-6 ${
+                    mounted ? "animate-fade-up" : "opacity-0"
+                  }`}
+                  style={{
+                    animationDelay: `${0.2 + i * 0.12}s`,
+                    animationFillMode: "forwards",
+                  }}
+                >
+                  <div className="mb-4 grid gap-2">
+                    {event.images.length === 1 ? (
+                      <div className="relative aspect-[3/2] overflow-hidden">
+                        <img
+                          src={event.images[0]}
+                          alt={event.title}
+                          className="event-img h-full w-full object-cover"
+                          loading="lazy"
+                        />
+                      </div>
+                    ) : (
+                      <div className="grid grid-cols-2 gap-2">
+                        {event.images.map((img, j) => (
+                          <div key={j} className="relative aspect-square overflow-hidden">
+                            <img
+                              src={img}
+                              alt={`${event.title} ${j + 1}`}
+                              className="event-img h-full w-full object-cover"
+                              loading="lazy"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <h3 className="font-display text-base font-bold tracking-tight">
+                        {event.title}
+                      </h3>
+                      <p className="mt-1 font-mono text-xs text-text-muted">
+                        {event.location}
+                      </p>
+                    </div>
+                    <span className="mt-1 shrink-0 font-mono text-[10px] uppercase tracking-widest text-neon-cyan opacity-0 transition-opacity group-hover:opacity-100">
+                      // 2025
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* SOCIAL */}
         <section
           id="social"
@@ -379,7 +511,7 @@ export default function Home() {
           <div className="mx-auto max-w-6xl">
             <div className="mb-16">
               <span className="font-mono text-xs uppercase tracking-[0.3em] text-neon-cyan">
-                // 003
+                // 004
               </span>
               <h2 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
                 find me{" "}
