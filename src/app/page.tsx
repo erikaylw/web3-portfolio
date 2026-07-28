@@ -43,7 +43,7 @@ export default function Home() {
 
   const experiences = [
     {
-      role: "Account Manager & Community",
+      role: "Community Moderator (Ex: KOLs Affiliate)",
       company: "Bitget Wallet",
       period: "Feb 2025 — Present",
       desc: "Indonesia Moderator for one of the largest non-custodial Web3 wallets (60M+ users). Managing a 100K-member Telegram community and the regional X account — grown from 40K to 44K followers. Handling 10+ user issues weekly plus daily community questions, and 50+ KOL partnerships spanning airdrop, degen, and local communities — including connecting the NodeGo project with Bitget Wallet.",
