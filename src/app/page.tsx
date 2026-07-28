@@ -77,15 +77,6 @@ export default function Home() {
       ],
       active: false,
     },
-    {
-      role: "Bitget Wallet Builder",
-      company: "Bitget Wallet",
-      period: "2025",
-      desc: "Ambassador program participant. Onboarding users to Web3 through the Bitget Wallet ecosystem.",
-      tags: ["Ambassador", "Onboarding", "Web3"],
-      stats: [],
-      active: false,
-    },
   ];
 
   const events = [
