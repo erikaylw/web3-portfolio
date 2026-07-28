@@ -191,6 +191,19 @@ export default function Home() {
             <span className="cursor-blink">whoami</span>
           </div>
 
+          {/* Avatar */}
+          <div
+            className={`relative mb-8 ${mounted ? "animate-fade-up" : "opacity-0"}`}
+            style={{ animationDelay: "0.1s", animationFillMode: "forwards" }}
+          >
+            <img
+              src="/images/avatar.jpg"
+              alt="justitia avatar"
+              className="h-28 w-28 rounded-full border-2 border-neon-green/60 object-cover shadow-[0_0_30px_rgba(0,255,65,0.25)] sm:h-32 sm:w-32"
+            />
+            <span className="absolute bottom-1 right-1 h-3.5 w-3.5 rounded-full border-2 border-bg bg-neon-green shadow-[0_0_8px_#00ff41] flicker" />
+          </div>
+
           {/* Main headline */}
           <h1
             className={`relative max-w-4xl text-center font-display text-5xl font-bold leading-[0.95] tracking-tight sm:text-7xl md:text-8xl ${
