@@ -17,10 +17,10 @@ export default function Home() {
       icon: "𝕏",
     },
     {
-      name: "Telegram",
-      handle: "t.me/baelcalls",
-      url: "https://t.me/baelcalls",
-      icon: "✈",
+      name: "TikTok",
+      handle: "@maklokripto",
+      url: "https://www.tiktok.com/@maklokripto",
+      icon: "♪",
     },
   ];
 
@@ -33,16 +33,11 @@ export default function Home() {
       statLabel: "Followers",
     },
     {
-      title: "Telegram Signal Channel",
-      desc: "Curated crypto signals and market insights delivered to subscribers via t.me/baelcalls.",
-      tags: ["Signals", "Alpha", "Community"],
+      title: "TikTok — Crypto Content",
+      desc: "Crypto content for the Indonesian audience via @maklokripto. Market takes, Web3 education, and crypto culture in short-form video.",
+      tags: ["Crypto", "Education", "Short-Form", "Community"],
       stat: "Active",
-      statLabel: "Channel",
-    },
-    {
-      title: "DeFi — LP Operations",
-      desc: "Running Unicrit LP bot on Ethereum/BSC/Base. Meridian Solana DLMM operations. Liquidity provisioning and yield optimization across chains.",
-      tags: ["DeFi", "Liquidity", "Solana", "EVM"],
+      statLabel: "Creator",
     },
   ];
 
@@ -51,24 +46,35 @@ export default function Home() {
       role: "Account Manager & Community",
       company: "Bitget Wallet",
       period: "Feb 2025 — Present",
-      desc: "Indonesia Moderator for one of the largest non-custodial Web3 wallets (60M+ users). Handling user support, app-related issues, cross-project collaborations, and KOL partnerships across the Indonesian market.",
+      desc: "Indonesia Moderator for one of the largest non-custodial Web3 wallets (60M+ users). Managing a 100K-member Telegram community and the regional X account — grown from 40K to 44K followers. Handling 10+ user issues weekly plus daily community questions, and 50+ KOL partnerships spanning airdrop, degen, and local communities — including connecting the NodeGo project with Bitget Wallet.",
       tags: ["Community", "Account Management", "KOL", "Web3"],
+      stats: [
+        { value: "100K", label: "TG Members" },
+        { value: "44K", label: "X Followers" },
+        { value: "50+", label: "KOL Partnerships" },
+      ],
       active: true,
     },
     {
       role: "Business Development",
       company: "MEVX",
       period: "Apr 2025 — Jul 2025",
-      desc: "Multi-chain memecoin trading platform. Content creation, cross-platform promotion, and KOL collaboration to drive brand awareness in the Indonesian crypto scene.",
+      desc: "Multi-chain memecoin trading platform. Content creation, cross-platform promotion, and KOL collaboration to drive brand awareness in the Indonesian crypto scene. Hosted an AMA with 100+ attendees, followed by a measurable uplift in Indonesian trading volume.",
       tags: ["Business Development", "Memecoin", "KOL"],
+      stats: [{ value: "100+", label: "AMA Attendees" }],
       active: false,
     },
     {
       role: "Business Development Intern",
       company: "Tevau",
       period: "Nov 2025 — Jan 2026",
-      desc: "Drove brand awareness through strategic social media campaigns. Negotiated KOL collaborations across crypto, finance, and lifestyle verticals. Created educational content around crypto cards, USDT spending, and stock trading. Tracked campaign KPIs and optimized content strategy.",
+      desc: "Drove brand awareness through strategic social media campaigns. Brought in 10 KOLs across crypto, finance, and lifestyle verticals — closing 2 deals. Created educational content around crypto cards, USDT spending, and stock trading, with a top tweet hitting 70K impressions.",
       tags: ["Business Development", "KOL", "Social Media", "Content"],
+      stats: [
+        { value: "10", label: "KOLs Onboarded" },
+        { value: "2", label: "Deals Closed" },
+        { value: "70K", label: "Top Tweet Impressions" },
+      ],
       active: false,
     },
     {
@@ -77,6 +83,7 @@ export default function Home() {
       period: "2025",
       desc: "Ambassador program participant. Onboarding users to Web3 through the Bitget Wallet ecosystem.",
       tags: ["Ambassador", "Onboarding", "Web3"],
+      stats: [],
       active: false,
     },
   ];
@@ -233,12 +240,12 @@ export default function Home() {
               <span className="relative z-10 text-lg">→</span>
             </a>
             <a
-              href="https://t.me/baelcalls"
+              href="https://www.tiktok.com/@maklokripto"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 rounded-sm border border-border px-8 py-3 font-mono text-sm uppercase tracking-widest text-text-muted transition-all hover:border-cyan-800 hover:text-neon-cyan"
             >
-              <span>JOIN TELEGRAM</span>
+              <span>FOLLOW TIKTOK</span>
               <span className="text-lg">→</span>
             </a>
           </div>
@@ -272,7 +279,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-6 md:grid-cols-2">
               {projects.map((project, i) => (
                 <div
                   key={project.title}
@@ -398,6 +405,21 @@ export default function Home() {
                       {exp.desc}
                     </p>
 
+                    {exp.stats.length > 0 && (
+                      <div className="mt-5 flex flex-wrap gap-x-8 gap-y-3 border-t border-border pt-4">
+                        {exp.stats.map((stat) => (
+                          <div key={stat.label}>
+                            <span className="font-mono text-xl font-bold text-neon-cyan">
+                              {stat.value}
+                            </span>
+                            <span className="ml-2 font-mono text-[11px] uppercase tracking-wider text-text-muted">
+                              {stat.label}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
                     <div className="mt-4 flex flex-wrap gap-2">
                       {exp.tags.map((tag) => (
                         <span
@@ -442,7 +464,7 @@ export default function Home() {
                 </span>
               </h2>
               <p className="mt-3 max-w-lg font-mono text-sm text-text-muted">
-                Bitget Wallet events across Indonesia — on the ground with the community.
+                5+ offline events across Indonesia — on the ground with the community.
               </p>
             </div>
 
