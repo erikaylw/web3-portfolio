@@ -18,8 +18,8 @@ export default function Home() {
     },
     {
       name: "TikTok",
-      handle: "@maklokripto",
-      url: "https://www.tiktok.com/@maklokripto",
+      handle: "@justitia_sol",
+      url: "https://www.tiktok.com/@justitia_sol",
       icon: "♪",
     },
   ];
@@ -34,7 +34,7 @@ export default function Home() {
     },
     {
       title: "TikTok — Crypto Content",
-      desc: "Crypto content for the Indonesian audience via @maklokripto. Market takes, Web3 education, and crypto culture in short-form video.",
+      desc: "Crypto content for the Indonesian audience via @justitia_sol. Market takes, Web3 education, and crypto culture in short-form video.",
       tags: ["Crypto", "Education", "Short-Form", "Community"],
       stat: "Active",
       statLabel: "Creator",
@@ -253,7 +253,7 @@ export default function Home() {
               <span className="relative z-10 text-lg">→</span>
             </a>
             <a
-              href="https://www.tiktok.com/@maklokripto"
+              href="https://www.tiktok.com/@justitia_sol"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 rounded-sm border border-border px-8 py-3 font-mono text-sm uppercase tracking-widest text-text-muted transition-all hover:border-cyan-800 hover:text-neon-cyan"
